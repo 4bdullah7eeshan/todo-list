@@ -15,18 +15,12 @@ body {
     line-height: 1.5;
 }
 
-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem;
-    gap: 2rem;
+header {
+    outline: 1px solid black;
 }
 
 main {
     flex-grow: 1;
-    padding: 0.5rem;
 }
 
 footer {
@@ -35,4 +29,5 @@ footer {
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
+    outline: 1px solid black;
 }

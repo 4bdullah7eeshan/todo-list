@@ -2,3 +2,19 @@
    For core CSS styling.
    NOTE: Check "./resets.css" before proceeding.
 */
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+aside {
+    outline: 1px solid black;
+}
+
+section {
+    flex-grow: 1;
+    outline: 1px solid black;
+}
