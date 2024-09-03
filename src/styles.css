@@ -15,19 +15,7 @@ body {
 
 header {
     outline: 1px solid black;
-}
-
-main {
-    flex-grow: 1;
-}
-
-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    outline: 1px solid black;
+    text-align: center;
 }
 
 main {
@@ -35,6 +23,8 @@ main {
     flex-direction: row;
     justify-content: flex-start;
     align-items: stretch;
+    flex-grow: 1;
+
 }
 
 aside {
@@ -43,5 +33,14 @@ aside {
 
 section {
     flex-grow: 1;
+    outline: 1px solid black;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
     outline: 1px solid black;
 }
