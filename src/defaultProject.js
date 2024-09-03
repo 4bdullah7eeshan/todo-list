@@ -1,0 +1,1 @@
+// for a default project that opens up when site is visited
