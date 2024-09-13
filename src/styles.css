@@ -16,8 +16,9 @@ body {
 }
 
 header {
-    outline: 1px solid black;
     text-align: center;
+    background-color: #dc4c3e;
+    color: #fcfaf8;
 }
 
 main {
@@ -30,14 +31,14 @@ main {
 }
 
 aside {
-    outline: 1px solid black;
     min-width: 15rem;
     padding: 1rem;
+    background-color: #fcfaf8;
+
 }
 
 section {
     flex-grow: 1;
-    outline: 1px solid black;
     padding: 1rem;
 }
 
@@ -47,7 +48,8 @@ footer {
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
-    outline: 1px solid black;
+    background-color: #dc4c3e;
+    color: #fcfaf8;
 }
 
 #projects-header {
