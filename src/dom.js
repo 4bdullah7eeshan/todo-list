@@ -5,3 +5,8 @@ const setUpAddProjectButton = () => {
     addProjectButton.removeEventListener('click', openAddProjectDialog);
     addProjectButton.addEventListener('click', openAddProjectDialog);
 };
+
+const openAddProjectDialog = () => {
+    const dialog = document.getElementById('create-new-project-dialog');
+    dialog.showModal();
+};
