@@ -62,4 +62,11 @@ footer {
 #create-new-project-button {
     height: 2rem;
     width: 2rem;
+    all: unset; 
+    cursor: pointer;
+    display: inline-block;
+}
+
+#create-new-project-button:focus {
+    outline: none;
 }
