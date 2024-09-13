@@ -44,3 +44,10 @@ footer {
     padding: 0.5rem;
     outline: 1px solid black;
 }
+
+#projects-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+}
