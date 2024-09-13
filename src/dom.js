@@ -1,5 +1,7 @@
 // for all dom related stuff
 import { createProject } from "./projects";
+import { saveProjects, loadProjects } from './storage';
+
 
 let projects = [];
 let currentProject = projects[0];
@@ -28,7 +30,7 @@ const handleProjectFormSubmit = (event) => {
     const projectName = document.getElementById('project-name').value;
     const newProject = createProject(projectName);
     projects.push(newProject);
-    //saveProjects(projects);
+    saveProjects(projects);
     displayProjects();
     document.getElementById('create-new-project-dialog').close();
 };
