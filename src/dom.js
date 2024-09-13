@@ -28,9 +28,38 @@ const handleProjectFormSubmit = (event) => {
     const projectName = document.getElementById('project-name').value;
     const newProject = createProject(projectName);
     projects.push(newProject);
-    saveProjects(projects);
+    //saveProjects(projects);
     displayProjects();
     document.getElementById('create-new-project-dialog').close();
 };
+
+const displayProjects = () => {
+    const projectSection = document.querySelector('#projects');
+    clearProjectSection(projectSection);
+  
+    if (projects.length === 0) {
+      displayNoProjectsMessage(projectSection);
+    } else {
+      projects.forEach((project, index) => {
+        const projectDiv = createProjectDiv(project, index);
+        projectSection.appendChild(projectDiv);
+      });
+    }
+  
+    setUpAddProjectButton();
+};
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
 
 export { setUpAddProjectButton };
