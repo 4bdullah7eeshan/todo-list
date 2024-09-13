@@ -24,6 +24,10 @@
         <section>
             <!-- Main todo lists -->
             Main App
+            <button id="add-new-task-button"><i class="fa-solid fa-plus"></i> Add New task</button>
+            <div id="todo-section">
+
+            </div>
         </section>
     </main>
     <dialog id="create-new-project-dialog">
@@ -40,6 +44,50 @@
             </fieldset>
         </form>
     </dialog> 
+    <dialog id="add-new-task-dialog">
+        <form action="#" method="post" id="add-new-task-form">
+            <h3>New Task</h3>    
+            <fieldset>
+                <legend>Task Details</legend>
+
+                <div>
+                    <label for="task-name">Task Name*:</label>
+                    <input type="text" id="task-name" name="task-name" placeholder="Scan documents" required>
+                </div>
+                <div>
+                    <label for="task-description">Task Description:</label>
+                    <input type="text" id="task-description" name="task-description">
+                </div>
+                <div>
+                    <label for="task-due-date">Task Due Date:</label>
+                    <input type="date" id="task-due-date" name="task-due-date">
+                </div>
+                <fieldset>
+                    <legend>Task Priority</legend>
+                  
+                    <div>
+                      <input type="radio" name="priority" id="low" value="low">
+                      <label for="low">Low</label>
+                    </div>
+                  
+                    <div>
+                      <input type="radio" name="priority" id="medium" value="medium">
+                      <label for="medium">Medium</label>
+                    </div>
+                  
+                    <div>
+                      <input type="radio" name="priority" id="high" value="high">
+                      <label for="high">High</label>
+                    </div>
+                </fieldset>
+                <div>
+                    <button type="submit" id="add-new-task-form-submit-button">Add</button>
+                    <button type="button" id="add-new-task-dialog-close-button">Cancel</button>
+                </div>
+            </fieldset>
+        </form>
+    </dialog> 
+
     
     <footer>
         <div>

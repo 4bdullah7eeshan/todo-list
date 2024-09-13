@@ -120,6 +120,11 @@ const createDeleteButton = (project, index) => {
     return projectDeleteButton;
 };
 
+const clearTodosDisplay = () => {
+    const todoSection = document.querySelector('#todo-section');
+    todoSection.innerHTML = ''; 
+  };
+
 const openEditProjectDialog = (index) => {
     const dialog = document.getElementById('create-new-project-dialog');
     dialog.showModal();
@@ -145,6 +150,165 @@ const handleEditProjectFormSubmit = (index) => {
     saveProjects(projects);
     displayProjects(); 
 };
+
+// todo area
+
+const displayTodos = (projectName) => {
+    const todoSection = document.querySelector('#todo-section');
+    todoSection.innerHTML = '';
+    const project = document.createElement('h2');
+    project.textContent = projectName;
+    todoSection.appendChild(project);
+    if (currentProject.todos.length === 0) {
+      const noTodos = document.createElement('p');
+      noTodos.textContent = "No tasks";
+      todoSection.appendChild(noTodos);
+    } else {
+      currentProject.todos.forEach((todo, index) => {
+          const todoDiv = document.createElement('div');
+          todoDiv.classList.add('todo-item');
+  
+  
+          const todoCheckbox = document.createElement('input');
+          todoCheckbox.type = 'checkbox';
+          todoCheckbox.checked = todo.completed || false;
+  
+          todoCheckbox.addEventListener('change', () => {
+              todoDiv.classList.toggle('completed');
+              todo.completed = todoCheckbox.checked;
+              saveProjects(projects);
+            });
+          
+          const todoDetails = document.createElement('div');
+          todoDetails.id = "to-do-details";
+  
+          const todoHeader = document.createElement('div');
+          todoHeader.id = "to-do-header";
+  
+  
+          const todoTitle = document.createElement('h3');
+          todoTitle.textContent = todo.title;
+  
+          const todoDescription = document.createElement('p');
+          todoDescription.textContent = todo.description;
+  
+          const todoDueDate = document.createElement('p');
+          todoDueDate.textContent = todo.dueDate;
+  
+          const todoPriority = document.createElement('p');
+          todoPriority.textContent = getCheckedPriority();
+  
+          todoHeader.appendChild(todoTitle);
+          todoHeader.appendChild(todoPriority);
+          todoHeader.appendChild(todoDueDate);
+  
+          const todoManageButtons = document.createElement("div");
+  
+          const todoEditButton = document.createElement("button");
+          todoEditButton.innerHTML = `<i class="fa-regular fa-pen-to-square"></i>`;
+          todoEditButton.addEventListener("click", () => {
+              openEditTaskDialog(todo, index); // Pass the todo and index
+          });
+  
+          const todoDeleteButton = document.createElement("button");
+          todoDeleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
+          todoDeleteButton.addEventListener("click", () => {
+              currentProject.todos.splice(index, 1);
+              displayTodos();
+          });
+  
+          todoManageButtons.appendChild(todoEditButton);
+          todoManageButtons.appendChild(todoDeleteButton);
+  
+          todoHeader.appendChild(todoManageButtons);
+  
+          todoDetails.appendChild(todoHeader);
+          todoDetails.appendChild(todoDescription);
+          
+  
+          todoDiv.appendChild(todoCheckbox);
+          todoDiv.appendChild(todoDetails);
+  
+  
+          if (todo.completed) {
+            todoDiv.classList.add('completed');
+          }
+  
+  
+          todoSection.appendChild(todoDiv);
+      });
+    }
+    
+  
+    const addTodoButton = document.getElementById('add-new-task-button');
+    addTodoButton.addEventListener('click', openAddTaskDialog);
+  };
+  
+  let editingIndex = null;
+  
+  const openEditTaskDialog = (todo, index) => {
+    const dialog = document.getElementById('add-new-task-dialog');
+    document.getElementById('task-name').value = todo.title;
+    document.getElementById('task-description').value = todo.description;
+    document.getElementById('task-due-date').value = todo.dueDate;
+    
+    const priorityRadio = document.querySelector(`input[name="priority"][value="${todo.priority}"]`);
+    if (priorityRadio) priorityRadio.checked = true;
+  
+    editingIndex = index; 
+    dialog.showModal();
+  };
+  
+  
+  
+  const getCheckedPriority = () => {
+      const checkedRadio = document.querySelector('input[name="priority"]:checked');
+      if (checkedRadio) {
+        console.log(`Selected priority: ${checkedRadio.value}`);
+        return checkedRadio.value;
+      } else {
+        console.log('No priority selected');
+        return null;
+      }
+  };
+
+  const openAddTaskDialog = () => {
+    const dialog = document.getElementById('add-new-task-dialog');
+    dialog.showModal();
+  
+    const form = document.getElementById('add-new-task-form');
+    form.removeEventListener('submit', handleTaskFormSubmit); 
+    form.addEventListener('submit', handleTaskFormSubmit);
+  
+    const closeButton = document.getElementById('add-new-task-dialog-close-button');
+    closeButton.removeEventListener('click', () => dialog.close());
+    closeButton.addEventListener('click', () => dialog.close());
+  };
+  
+const handleTaskFormSubmit = (event) => {
+    event.preventDefault();
+    const taskName = document.getElementById('task-name').value;
+    const taskDescription = document.getElementById('task-description').value;
+    const dueDate = document.getElementById('task-due-date').value;
+    const priority = getCheckedPriority();
+  
+    if (editingIndex !== null) {
+      currentProject.todos[editingIndex].title = taskName;
+      currentProject.todos[editingIndex].description = taskDescription;
+      currentProject.todos[editingIndex].dueDate = dueDate;
+      currentProject.todos[editingIndex].priority = priority;
+      editingIndex = null;
+    } else {
+      // Create new task
+      const newTodo = createTodo(taskName, taskDescription, dueDate, priority);
+      currentProject.addTodo(newTodo);
+    }
+  
+    saveProjects(projects);
+    displayTodos();
+    document.getElementById('add-new-task-dialog').close();
+  };
+
   
   
 
