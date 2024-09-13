@@ -50,6 +50,10 @@ const displayProjects = () => {
   
     setUpAddProjectButton();
 };
+
+const clearProjectSection = (projectSection) => {
+    projectSection.innerHTML = '';
+};
   
   
 
