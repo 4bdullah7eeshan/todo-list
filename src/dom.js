@@ -119,6 +119,32 @@ const createDeleteButton = (project, index) => {
     });
     return projectDeleteButton;
 };
+
+const openEditProjectDialog = (index) => {
+    const dialog = document.getElementById('create-new-project-dialog');
+    dialog.showModal();
+  
+    document.getElementById('project-name').value = projects[index].name;
+  
+    const form = document.getElementById('create-new-project-form');
+    form.removeEventListener('submit', handleProjectFormSubmit);
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      handleEditProjectFormSubmit(index);
+      dialog.close();
+    });
+  
+    const closeButton = document.getElementById('create-new-project-dialog-close-button');
+    closeButton.removeEventListener('click', () => dialog.close());
+    closeButton.addEventListener('click', () => dialog.close());
+};
+
+const handleEditProjectFormSubmit = (index) => {
+    const projectName = document.getElementById('project-name').value;
+    projects[index].name = projectName;
+    saveProjects(projects);
+    displayProjects(); 
+};
   
   
 
