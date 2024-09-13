@@ -203,6 +203,8 @@ const displayTodos = (projectName) => {
   
           const todoTitle = document.createElement('h3');
           todoTitle.textContent = todo.title;
+
+          todoHeader.appendChild(todoTitle);
   
           const todoDescription = document.createElement('p');
           todoDescription.textContent = todo.description;
@@ -222,9 +224,7 @@ const displayTodos = (projectName) => {
                 todoPriority.classList.add('high-priority');
             }
   
-          todoHeader.appendChild(todoTitle);
-          todoHeader.appendChild(todoPriority);
-          todoHeader.appendChild(todoDueDate);
+          
   
           const todoManageButtons = document.createElement("div");
   
@@ -250,6 +250,8 @@ const displayTodos = (projectName) => {
   
           todoDetails.appendChild(todoHeader);
           todoDetails.appendChild(todoDescription);
+          todoDetails.appendChild(todoDueDate);
+          todoDetails.appendChild(todoPriority);
           
   
           todoDiv.appendChild(todoCheckbox);
