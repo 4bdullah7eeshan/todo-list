@@ -23,4 +23,14 @@ const openAddProjectDialog = () => {
     closeButton.addEventListener('click', () => dialog.close());
 };
 
+const handleProjectFormSubmit = (event) => {
+    event.preventDefault();
+    const projectName = document.getElementById('project-name').value;
+    const newProject = createProject(projectName);
+    projects.push(newProject);
+    saveProjects(projects);
+    displayProjects();
+    document.getElementById('create-new-project-dialog').close();
+};
+
 export { setUpAddProjectButton };
