@@ -1,6 +1,6 @@
 import "./styles.css";
-import { setUpAddProjectButton } from './dom.js';
+import { displayProjects } from './dom.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  setUpAddProjectButton();
+  displayProjects();
 });

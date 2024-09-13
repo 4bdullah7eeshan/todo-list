@@ -323,4 +323,4 @@ const handleTaskFormSubmit = (event) => {
   
   
 
-export { setUpAddProjectButton };
+export { displayProjects };
