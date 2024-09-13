@@ -1,3 +1,6 @@
 import "./styles.css";
+import { setUpAddProjectButton } from './dom.js';
 
-console.log("hello, world!");
+document.addEventListener('DOMContentLoaded', () => {
+  setUpAddProjectButton();
+});

@@ -10,3 +10,5 @@ const openAddProjectDialog = () => {
     const dialog = document.getElementById('create-new-project-dialog');
     dialog.showModal();
 };
+
+export { setUpAddProjectButton };
