@@ -107,3 +107,34 @@ footer {
 .todo-item input[type="checkbox"] {
     margin-right: 10px;
 }
+
+/* Positioning and styling the "Add New Task" button */
+#add-new-task-button {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #dc4c3e;
+    color: #fcfaf8;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#add-new-task-button i {
+    margin: 0;
+}
+
+#add-new-task-button:hover {
+    background-color: #b83a2e;
+}
+
+#add-new-task-button:focus {
+    outline: none;
+}
