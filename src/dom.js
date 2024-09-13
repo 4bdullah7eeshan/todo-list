@@ -2,11 +2,15 @@
 import { createProject } from "./projects";
 import { createTodo } from "./todos";
 import { saveProjects, loadProjects } from './storage';
+import taskButton from './taskButton';
+
 
 
 
 let projects = [];
 let currentProject = projects[0];
+
+taskButton.hide();
 
 const setUpAddProjectButton = () => {
     const addProjectButton = document.getElementById('create-new-project-button');
@@ -43,6 +47,7 @@ const displayProjects = () => {
   
     if (projects.length === 0) {
       displayNoProjectsMessage(projectSection);
+      taskButton.hide();
     } else {
       projects.forEach((project, index) => {
         const projectDiv = createProjectDiv(project, index);
@@ -74,12 +79,17 @@ const createProjectDiv = (project, index) => {
     return projectDiv;
 };
 
+
 const setProjectDivClickListener = (projectDiv, project) => {
     projectDiv.addEventListener('click', () => {
-      currentProject = project;
-      displayTodos(project.name);
+        currentProject = project;
+        displayTodos(project.name);
+
+        // Show the Add Task button when a project is clicked
+        taskButton.show();
     });
 };
+
 
 const createProjectManageDiv = (project, index) => {
     const projectManageDiv = document.createElement('div');
@@ -111,6 +121,7 @@ const createDeleteButton = (project, index) => {
       
       if (currentProject === project) {
         clearTodosDisplay();
+        taskButton.hide();
       }
 
       projects.splice(index, 1);
@@ -272,18 +283,18 @@ const displayTodos = (projectName) => {
       }
   };
 
-  const openAddTaskDialog = () => {
+const openAddTaskDialog = () => {
     const dialog = document.getElementById('add-new-task-dialog');
     dialog.showModal();
-  
+
     const form = document.getElementById('add-new-task-form');
     form.removeEventListener('submit', handleTaskFormSubmit); 
     form.addEventListener('submit', handleTaskFormSubmit);
-  
+
     const closeButton = document.getElementById('add-new-task-dialog-close-button');
     closeButton.removeEventListener('click', () => dialog.close());
     closeButton.addEventListener('click', () => dialog.close());
-  };
+};
   
 const handleTaskFormSubmit = (event) => {
     event.preventDefault();
@@ -309,10 +320,9 @@ const handleTaskFormSubmit = (event) => {
     document.getElementById('add-new-task-dialog').close();
   };
 
-  
-  
 
-  
+
+
 
   
 
