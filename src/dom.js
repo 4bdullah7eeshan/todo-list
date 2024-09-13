@@ -207,22 +207,23 @@ const displayTodos = (projectName) => {
           todoHeader.appendChild(todoTitle);
   
           const todoDescription = document.createElement('p');
-          todoDescription.textContent = todo.description;
-  
+          todoDescription.textContent = todo.description ? todo.description : '';
+
           const todoDueDate = document.createElement('p');
-          todoDueDate.textContent = todo.dueDate;
-  
+          todoDueDate.textContent = todo.dueDate ? todo.dueDate : '';
+
           const todoPriority = document.createElement('p');
-          const priority = todo.priority;
+          const priority = todo.priority ? todo.priority : ''; // Default to 'low'
 
           todoPriority.textContent = priority.toUpperCase();
           if (priority === 'low') {
-            todoPriority.classList.add('low-priority');
+                todoPriority.classList.add('low-priority');
             } else if (priority === 'medium') {
                 todoPriority.classList.add('medium-priority');
             } else if (priority === 'high') {
                 todoPriority.classList.add('high-priority');
             }
+
   
           
   
@@ -230,14 +231,14 @@ const displayTodos = (projectName) => {
   
           const todoEditButton = document.createElement("button");
           todoEditButton.id = "todo-edit-button";
-          todoEditButton.innerHTML = `<i class="fa-regular fa-pen-to-square"></i>`;
+          todoEditButton.innerHTML = `<i class="fa-solid fa-pen"></i>`;
           todoEditButton.addEventListener("click", () => {
               openEditTaskDialog(todo, index); // Pass the todo and index
           });
   
           const todoDeleteButton = document.createElement("button");
           todoDeleteButton.id = "todo-delete-button";
-          todoDeleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
+          todoDeleteButton.innerHTML = '<i class="fa-solid fa-x"></i>';
           todoDeleteButton.addEventListener("click", () => {
               currentProject.todos.splice(index, 1);
               displayTodos();
