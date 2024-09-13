@@ -269,3 +269,52 @@ label {
 
 }
 
+/* check */
+/* General checkbox styling */
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #999; /* Default border */
+    border-radius: 50%; /* Make it circular */
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  /* Hover effect: outline with red color */
+  input[type="checkbox"]:hover {
+    border-color: #ff0000; /* Red color on hover */
+  }
+  
+  /* Checked state: fill with red color */
+  input[type="checkbox"]:checked {
+    background-color: #ff0000; /* Red fill when selected */
+    border-color: #ff0000; /* Red border to match the fill */
+  }
+  
+  input[type="checkbox"]:checked::before {
+    content: '✔'; /* Checkmark inside the checkbox */
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px; /* Adjust size for checkmark */
+  }
+  
+  .todo-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .completed {
+    text-decoration: line-through;
+    opacity: 0.6; /* Dim completed tasks */
+  }
+  
+
