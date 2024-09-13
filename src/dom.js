@@ -93,6 +93,7 @@ const setProjectDivClickListener = (projectDiv, project) => {
 
 const createProjectManageDiv = (project, index) => {
     const projectManageDiv = document.createElement('div');
+    projectManageDiv.id = "project-manager"
   
     const projectEditButton = createEditButton(index);
     const projectDeleteButton = createDeleteButton(project, index);
@@ -105,7 +106,8 @@ const createProjectManageDiv = (project, index) => {
 
 const createEditButton = (index) => {
     const projectEditButton = document.createElement('button');
-    projectEditButton.innerHTML = '<i class="fa-regular fa-pen-to-square"></i>';
+    projectEditButton.id = "project-edit-button";
+    projectEditButton.innerHTML = '<i class="fa-solid fa-pen"></i>';
     projectEditButton.addEventListener('click', (event) => {
       event.stopPropagation(); // Prevent the click event from bubbling up
       openEditProjectDialog(index);
@@ -115,7 +117,8 @@ const createEditButton = (index) => {
 
 const createDeleteButton = (project, index) => {
     const projectDeleteButton = document.createElement('button');
-    projectDeleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
+    projectDeleteButton.id = "project-delete-button";
+    projectDeleteButton.innerHTML = '<i class="fa-solid fa-x"></i>';
     projectDeleteButton.addEventListener('click', (event) => {
       event.stopPropagation(); 
       
@@ -177,6 +180,7 @@ const displayTodos = (projectName) => {
     } else {
       currentProject.todos.forEach((todo, index) => {
           const todoDiv = document.createElement('div');
+          todoDiv.id = "todo-div";
           todoDiv.classList.add('todo-item');
   
   
@@ -216,12 +220,14 @@ const displayTodos = (projectName) => {
           const todoManageButtons = document.createElement("div");
   
           const todoEditButton = document.createElement("button");
+          todoEditButton.id = "todo-edit-button";
           todoEditButton.innerHTML = `<i class="fa-regular fa-pen-to-square"></i>`;
           todoEditButton.addEventListener("click", () => {
               openEditTaskDialog(todo, index); // Pass the todo and index
           });
   
           const todoDeleteButton = document.createElement("button");
+          todoDeleteButton.id = "todo-delete-button";
           todoDeleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
           todoDeleteButton.addEventListener("click", () => {
               currentProject.todos.splice(index, 1);

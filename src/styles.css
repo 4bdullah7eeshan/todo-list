@@ -243,3 +243,24 @@ label {
     color: #5a5755; /* Gray text */
 }
 
+/* Hide the edit and delete icons by default */
+#project-div #project-delete-button,
+#project-div #project-edit-button,
+#todo-div #todo-edit-button,
+#todo-div #todo-delete-button
+ {
+    display: none;
+    cursor: pointer;
+    margin-left: 10px;
+    border: none;
+}
+
+/* Show the icons when the projectDiv is hovered */
+#project-div:hover #project-delete-button,
+#project-div:hover #project-edit-button,
+#todo-div:hover #todo-edit-button,
+#todo-div:hover #todo-delete-button {
+    display: inline-block;
+
+}
+
