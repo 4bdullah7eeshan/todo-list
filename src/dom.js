@@ -1,6 +1,8 @@
 // for all dom related stuff
 import { createProject } from "./projects";
+import { createTodo } from "./todos";
 import { saveProjects, loadProjects } from './storage';
+
 
 
 let projects = [];
