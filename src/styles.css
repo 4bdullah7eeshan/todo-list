@@ -88,6 +88,10 @@ footer {
 
 }
 
+#todo-div {
+    padding: 0.5rem;
+}
+
 .todo-item {
     display: flex;
     align-items: center;
