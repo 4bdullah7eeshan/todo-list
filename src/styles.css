@@ -29,6 +29,7 @@ main {
 
 aside {
     outline: 1px solid black;
+    min-width: 15rem;
 }
 
 section {
