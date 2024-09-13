@@ -82,3 +82,28 @@ footer {
 #project-div:hover {
     background-color: #f2efed;
 }
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#to-do-details {
+    width: 100%;
+}
+
+#to-do-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.todo-item.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.todo-item input[type="checkbox"] {
+    margin-right: 10px;
+}
