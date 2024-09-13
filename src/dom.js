@@ -10,9 +10,9 @@ const openAddProjectDialog = () => {
     const dialog = document.getElementById('create-new-project-dialog');
     dialog.showModal();
 
-    const form = document.getElementById('add-new-task-form');
-    form.removeEventListener('submit', handleTaskFormSubmit); 
-    form.addEventListener('submit', handleTaskFormSubmit);
+    const form = document.getElementById('create-new-project-form');
+    form.removeEventListener('submit', handleProjectFormSubmit); 
+    form.addEventListener('submit', handleProjectFormSubmit);
 };
 
 export { setUpAddProjectButton };
