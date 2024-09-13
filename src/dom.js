@@ -54,6 +54,12 @@ const displayProjects = () => {
 const clearProjectSection = (projectSection) => {
     projectSection.innerHTML = '';
 };
+
+const displayNoProjectsMessage = (projectSection) => {
+    const noProjectsMessage = document.createElement('p');
+    noProjectsMessage.textContent = 'No active projects';
+    projectSection.appendChild(noProjectsMessage);
+};
   
   
 
