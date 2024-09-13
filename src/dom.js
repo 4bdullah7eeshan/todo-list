@@ -211,7 +211,16 @@ const displayTodos = (projectName) => {
           todoDueDate.textContent = todo.dueDate;
   
           const todoPriority = document.createElement('p');
-          todoPriority.textContent = getCheckedPriority();
+          const priority = todo.priority;
+
+          todoPriority.textContent = priority.toUpperCase();
+          if (priority === 'low') {
+            todoPriority.classList.add('low-priority');
+            } else if (priority === 'medium') {
+                todoPriority.classList.add('medium-priority');
+            } else if (priority === 'high') {
+                todoPriority.classList.add('high-priority');
+            }
   
           todoHeader.appendChild(todoTitle);
           todoHeader.appendChild(todoPriority);

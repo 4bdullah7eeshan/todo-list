@@ -316,5 +316,34 @@ input[type="checkbox"] {
     text-decoration: line-through;
     opacity: 0.6; /* Dim completed tasks */
   }
-  
+
+/* priority */
+/* Priority styles */
+.low-priority {
+    background-color: green;
+    color: white; /* Appropriate text color */
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    width: fit-content;
+}
+
+.medium-priority {
+    background-color: yellow;
+    color: black; /* Appropriate text color */
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    width: fit-content;
+}
+
+.high-priority {
+    background-color: red;
+    color: white; /* Appropriate text color */
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    width: fit-content;
+}
+
 
