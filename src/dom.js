@@ -60,6 +60,17 @@ const displayNoProjectsMessage = (projectSection) => {
     noProjectsMessage.textContent = 'No active projects';
     projectSection.appendChild(noProjectsMessage);
 };
+
+const createProjectDiv = (project, index) => {
+    const projectDiv = document.createElement('div');
+    projectDiv.id = 'project-div';
+    projectDiv.textContent = project.name;
+  
+    setProjectDivClickListener(projectDiv, project);
+    projectDiv.appendChild(createProjectManageDiv(project, index));
+  
+    return projectDiv;
+};
   
   
 
