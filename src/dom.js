@@ -9,6 +9,10 @@ const setUpAddProjectButton = () => {
 const openAddProjectDialog = () => {
     const dialog = document.getElementById('create-new-project-dialog');
     dialog.showModal();
+
+    const form = document.getElementById('add-new-task-form');
+    form.removeEventListener('submit', handleTaskFormSubmit); 
+    form.addEventListener('submit', handleTaskFormSubmit);
 };
 
 export { setUpAddProjectButton };
