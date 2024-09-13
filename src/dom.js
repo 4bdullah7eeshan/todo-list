@@ -1,4 +1,8 @@
 // for all dom related stuff
+import { createProject } from "./projects";
+
+let projects = [];
+let currentProject = projects[0];
 
 const setUpAddProjectButton = () => {
     const addProjectButton = document.getElementById('create-new-project-button');
