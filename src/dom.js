@@ -78,6 +78,18 @@ const setProjectDivClickListener = (projectDiv, project) => {
       displayTodos(project.name);
     });
 };
+
+const createProjectManageDiv = (project, index) => {
+    const projectManageDiv = document.createElement('div');
+  
+    const projectEditButton = createEditButton(index);
+    const projectDeleteButton = createDeleteButton(project, index);
+  
+    projectManageDiv.appendChild(projectEditButton);
+    projectManageDiv.appendChild(projectDeleteButton);
+  
+    return projectManageDiv;
+};
   
   
 
