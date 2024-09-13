@@ -138,3 +138,108 @@ footer {
 #add-new-task-button:focus {
     outline: none;
 }
+
+/* modal */
+/* General Modal Styling */
+dialog {
+    width: 300px;
+    max-width: 90%;
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fcfaf8; /* Light background for the modal */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Dim background when the dialog is open */
+}
+
+/* Form inside the dialog */
+dialog form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dialog Titles */
+dialog h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #dc4c3e; /* Dark red for the title */
+    text-align: center;
+}
+
+/* Input Fields */
+dialog input[type="text"],
+dialog input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #f2efed; /* Light border */
+    background-color: #fcfaf8; /* Light background */
+}
+
+/* Buttons */
+dialog button {
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Submit button styling */
+#add-new-task-form-submit-button,
+#create-new-project-form-submit-button {
+    background-color: #dc4c3e; /* Red button */
+    color: white;
+    margin-top: 10px;
+}
+
+#add-new-task-form-submit-button:hover,
+#create-new-project-form-submit-button:hover {
+    background-color: #b33a2f; /* Darker red on hover */
+}
+
+/* Cancel button styling */
+#add-new-task-dialog-close-button,
+#create-new-project-dialog-close-button {
+    background-color: #f2efed; /* Light background for cancel button */
+    color: #dc4c3e; /* Red text */
+    margin-top: 10px;
+    border: 1px solid #dc4c3e;
+}
+
+#add-new-task-dialog-close-button:hover,
+#create-new-project-dialog-close-button:hover {
+    background-color: #fcfaf8; /* Slightly darker background on hover */
+    color: #b33a2f;
+}
+
+/* Fieldsets */
+fieldset {
+    border: none;
+    margin-bottom: 10px;
+}
+
+legend {
+    color: #dc4c3e;
+    font-weight: bold;
+}
+
+/* Priority radio buttons */
+fieldset > div {
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 1rem;
+    color: #5a5755; /* Gray text */
+}
+
