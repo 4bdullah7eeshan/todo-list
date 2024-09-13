@@ -100,6 +100,23 @@ const createEditButton = (index) => {
     });
     return projectEditButton;
 };
+
+const createDeleteButton = (project, index) => {
+    const projectDeleteButton = document.createElement('button');
+    projectDeleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
+    projectDeleteButton.addEventListener('click', (event) => {
+      event.stopPropagation(); 
+      
+      if (currentProject === project) {
+        clearTodosDisplay();
+      }
+
+      projects.splice(index, 1);
+      saveProjects(projects);
+      displayProjects(); 
+    });
+    return projectDeleteButton;
+};
   
   
 
