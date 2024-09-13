@@ -30,11 +30,13 @@ main {
 aside {
     outline: 1px solid black;
     min-width: 15rem;
+    padding: 1rem;
 }
 
 section {
     flex-grow: 1;
     outline: 1px solid black;
+    padding: 1rem;
 }
 
 footer {
