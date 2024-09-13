@@ -80,7 +80,12 @@ footer {
 }
 
 #project-div:hover {
+    background-color: #ffefe5;
+}
+
+#todo-div:hover {
     background-color: #f2efed;
+
 }
 
 .todo-item {
