@@ -13,6 +13,10 @@ const openAddProjectDialog = () => {
     const form = document.getElementById('create-new-project-form');
     form.removeEventListener('submit', handleProjectFormSubmit); 
     form.addEventListener('submit', handleProjectFormSubmit);
+
+    const closeButton = document.getElementById('create-new-project-dialog-close-button');
+    closeButton.removeEventListener('click', () => dialog.close());
+    closeButton.addEventListener('click', () => dialog.close());
 };
 
 export { setUpAddProjectButton };
