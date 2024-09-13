@@ -90,6 +90,16 @@ const createProjectManageDiv = (project, index) => {
   
     return projectManageDiv;
 };
+
+const createEditButton = (index) => {
+    const projectEditButton = document.createElement('button');
+    projectEditButton.innerHTML = '<i class="fa-regular fa-pen-to-square"></i>';
+    projectEditButton.addEventListener('click', (event) => {
+      event.stopPropagation(); // Prevent the click event from bubbling up
+      openEditProjectDialog(index);
+    });
+    return projectEditButton;
+};
   
   
 
