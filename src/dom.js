@@ -170,9 +170,9 @@ const handleEditProjectFormSubmit = (index) => {
 const displayTodos = (projectName) => {
     const todoSection = document.querySelector('#todo-section');
     todoSection.innerHTML = '';
-    const project = document.createElement('h2');
-    project.textContent = projectName;
-    todoSection.appendChild(project);
+    const projectHeading = document.createElement('h2');
+    projectHeading.textContent = projectName;
+    todoSection.appendChild(projectHeading);
     if (currentProject.todos.length === 0) {
       const noTodos = document.createElement('p');
       noTodos.textContent = "No tasks";
@@ -241,7 +241,7 @@ const displayTodos = (projectName) => {
           todoDeleteButton.innerHTML = '<i class="fa-solid fa-x"></i>';
           todoDeleteButton.addEventListener("click", () => {
               currentProject.todos.splice(index, 1);
-              displayTodos();
+              displayTodos(projectName);
           });
   
           todoManageButtons.appendChild(todoEditButton);
@@ -334,7 +334,7 @@ const handleTaskFormSubmit = (event) => {
     }
   
     saveProjects(projects);
-    displayTodos();
+    displayTodos(currentProject.name);
     document.getElementById('add-new-task-dialog').close();
   };
 
