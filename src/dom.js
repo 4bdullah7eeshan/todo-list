@@ -71,6 +71,13 @@ const createProjectDiv = (project, index) => {
   
     return projectDiv;
 };
+
+const setProjectDivClickListener = (projectDiv, project) => {
+    projectDiv.addEventListener('click', () => {
+      currentProject = project;
+      displayTodos(project.name);
+    });
+};
   
   
 
