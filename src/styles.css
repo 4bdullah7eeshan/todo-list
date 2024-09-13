@@ -70,3 +70,15 @@ footer {
 #create-new-project-button:focus {
     outline: none;
 }
+
+#project-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 0.5rem;
+}
+
+#project-div:hover {
+    background-color: #f2efed;
+}
