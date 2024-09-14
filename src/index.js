@@ -1,6 +1,8 @@
 import "./styles.css";
+import { loadProjects } from "./storage.js";
 import { displayProjects } from './dom.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  displayProjects();
+    const projects = loadProjects();
+    displayProjects(projects);
 });
