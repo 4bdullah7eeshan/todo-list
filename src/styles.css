@@ -1,6 +1,7 @@
-/* styles.css */
+/* Import Roboto Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -15,43 +16,32 @@ body {
     line-height: 1.5;
 }
 
+/* Header Styles */
 header {
     text-align: center;
     background-color: #dc4c3e;
     color: #fcfaf8;
+    padding: 0.5rem;
 }
 
+/* Main */
 main {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: stretch;
     flex-grow: 1;
-
 }
 
+/* Projects Area */
+/* Projects Area Layout */
 aside {
     min-width: 15rem;
     padding: 1rem;
     background-color: #fcfaf8;
-
 }
 
-section {
-    flex-grow: 1;
-    padding: 1rem;
-}
-
-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    background-color: #dc4c3e;
-    color: #fcfaf8;
-}
-
+/* Projects Header */
 #projects-header {
     display: flex;
     flex-direction: row;
@@ -59,6 +49,7 @@ footer {
     align-items: stretch;
 }
 
+/* Create New Project Button */
 #create-new-project-button {
     height: 2rem;
     width: 2rem;
@@ -71,6 +62,7 @@ footer {
     outline: none;
 }
 
+/* Project Container */
 #project-div {
     display: flex;
     flex-direction: row;
@@ -83,21 +75,30 @@ footer {
     background-color: #ffefe5;
 }
 
-#todo-div:hover {
-    background-color: #f2efed;
-
+/* Todo Area */
+/* Todo Area Layout */
+section {
+    flex-grow: 1;
+    padding: 1rem;
 }
 
+/* Todo Container */
 #todo-div {
     padding: 0.5rem;
 }
 
+#todo-div:hover {
+    background-color: #f2efed;
+}
+
+/* Todo Item */
 .todo-item {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    gap: 10px;
 }
-
+  
 #to-do-details {
     width: 100%;
 }
@@ -108,16 +109,73 @@ footer {
     justify-content: space-between;
 }
 
-.todo-item.completed {
-    text-decoration: line-through;
-    opacity: 0.6;
+/* Todo Priority styles */
+.low-priority {
+    background-color: #a9dfbf;
+    padding: 0.3rem;
+    text-align: center;
+    width: fit-content;
+    font-size: 0.8rem;
 }
 
-.todo-item input[type="checkbox"] {
+.medium-priority {
+    background-color: #f9e79f;
+    padding: 0.3rem;
+    text-align: center;
+    width: fit-content;
+    font-size: 0.8rem;
+}
+
+.high-priority {
+    background-color: #f5b7b1;
+    padding: 0.3rem;
+    text-align: center;
+    width: fit-content;
+    font-size: 0.8rem;
+}
+
+/* Todo Checkbox */
+input[type="checkbox"] {
     margin-right: 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #999; 
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    transition: all 0.3s ease;
+}
+  
+input[type="checkbox"]:hover {
+    border-color: #ff0000; 
+}
+  
+input[type="checkbox"]:checked {
+    background-color: #ff0000; 
+    border-color: #ff0000;
+}
+  
+input[type="checkbox"]:checked::before {
+    content: '✔'; 
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+}
+  
+/* Todo Completed */
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6; 
 }
 
-/* Positioning and styling the "Add New Task" button */
+/* "Add New Task" button */
 #add-new-task-button {
     position: fixed;
     bottom: 50px;
@@ -148,15 +206,15 @@ footer {
     outline: none;
 }
 
-/* modal */
-/* General Modal Styling */
+/* Miscellaneous */
+/* Dialog & Modals */
 dialog {
     width: 300px;
     max-width: 90%;
     border: none;
     border-radius: 8px;
     padding: 20px;
-    background-color: #fcfaf8; /* Light background for the modal */
+    background-color: #fcfaf8; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 50%;
@@ -165,7 +223,7 @@ dialog {
 }
 
 dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.5); /* Dim background when the dialog is open */
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Form inside the dialog */
@@ -178,22 +236,22 @@ dialog form {
 dialog h3 {
     margin-top: 0;
     font-size: 1.5rem;
-    color: #dc4c3e; /* Dark red for the title */
+    color: #dc4c3e;
     text-align: center;
 }
 
-/* Input Fields */
+/* Form Input Fields */
 dialog input[type="text"],
 dialog input[type="date"] {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
     border-radius: 4px;
-    border: 1px solid #f2efed; /* Light border */
-    background-color: #fcfaf8; /* Light background */
+    border: 1px solid #f2efed; 
+    background-color: #fcfaf8; 
 }
 
-/* Buttons */
+/* Form Buttons */
 dialog button {
     padding: 10px;
     border-radius: 4px;
@@ -203,31 +261,31 @@ dialog button {
     transition: background-color 0.3s ease;
 }
 
-/* Submit button styling */
+/* Form Submit Button */
 #add-new-task-form-submit-button,
 #create-new-project-form-submit-button {
-    background-color: #dc4c3e; /* Red button */
+    background-color: #dc4c3e; 
     color: white;
     margin-top: 10px;
 }
 
 #add-new-task-form-submit-button:hover,
 #create-new-project-form-submit-button:hover {
-    background-color: #b33a2f; /* Darker red on hover */
+    background-color: #b33a2f; 
 }
 
-/* Cancel button styling */
+/* Form Cancel Button */
 #add-new-task-dialog-close-button,
 #create-new-project-dialog-close-button {
-    background-color: #f2efed; /* Light background for cancel button */
-    color: #dc4c3e; /* Red text */
+    background-color: #f2efed; 
+    color: #dc4c3e; 
     margin-top: 10px;
     border: 1px solid #dc4c3e;
 }
 
 #add-new-task-dialog-close-button:hover,
 #create-new-project-dialog-close-button:hover {
-    background-color: #fcfaf8; /* Slightly darker background on hover */
+    background-color: #fcfaf8; 
     color: #b33a2f;
 }
 
@@ -237,27 +295,27 @@ fieldset {
     margin-bottom: 10px;
 }
 
+/* Legends */
 legend {
     color: #dc4c3e;
     font-weight: bold;
 }
 
-/* Priority radio buttons */
+/* Priority Radio Buttons */
 fieldset > div {
     margin-bottom: 10px;
 }
 
 label {
     font-size: 1rem;
-    color: #5a5755; /* Gray text */
+    color: #5a5755;
 }
 
 /* Hide the edit and delete icons by default */
 #project-div #project-delete-button,
 #project-div #project-edit-button,
 #todo-div #todo-edit-button,
-#todo-div #todo-delete-button
- {
+#todo-div #todo-delete-button {
     display: none;
     cursor: pointer;
     margin-left: 10px;
@@ -270,83 +328,6 @@ label {
 #todo-div:hover #todo-edit-button,
 #todo-div:hover #todo-delete-button {
     display: inline-block;
-
-}
-
-/* check */
-/* General checkbox styling */
-input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #999; /* Default border */
-    border-radius: 50%; /* Make it circular */
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    outline: none;
-    transition: all 0.3s ease;
-  }
-  
-  /* Hover effect: outline with red color */
-  input[type="checkbox"]:hover {
-    border-color: #ff0000; /* Red color on hover */
-  }
-  
-  /* Checked state: fill with red color */
-  input[type="checkbox"]:checked {
-    background-color: #ff0000; /* Red fill when selected */
-    border-color: #ff0000; /* Red border to match the fill */
-  }
-  
-  input[type="checkbox"]:checked::before {
-    content: '✔'; /* Checkmark inside the checkbox */
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 16px; /* Adjust size for checkmark */
-  }
-  
-  .todo-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .completed {
-    text-decoration: line-through;
-    opacity: 0.6; /* Dim completed tasks */
-  }
-
-/* priority */
-/* Priority styles */
-.low-priority {
-    background-color: #a9dfbf;
-    padding: 0.3rem;
-    text-align: center;
-    width: fit-content;
-    font-size: 0.8rem;
-}
-
-.medium-priority {
-    background-color: #f9e79f;
-    padding: 0.3rem;
-    text-align: center;
-    width: fit-content;
-    font-size: 0.8rem;
-
-}
-
-.high-priority {
-    background-color: #f5b7b1;
-    padding: 0.3rem;
-    text-align: center;
-    width: fit-content;
-    font-size: 0.8rem;
-
 }
 
 .visually-hidden {
@@ -360,5 +341,17 @@ input[type="checkbox"] {
     border: 0;
 }
 
+/* Footer Styles */
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #dc4c3e;
+    color: #fcfaf8;
+}
 
-
+.fa-github {
+    color: #fcfaf8;
+}
